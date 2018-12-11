@@ -94,9 +94,10 @@
 	<!-- Default navbar -->
 	<div class="navbar navbar-default navbar-component" style="padding: 15px">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="">
+			<a class="navbar-brand" href="home">
 				<img src="/assets/images/logo.png" class="logoSO" style="width:45%; height:250%; margin: -15px 35px; " alt="">
 			</a>
+			<h4>PTIPD</h4>
 
 			<ul class="nav navbar-nav pull-right visible-xs-block">
 				<li><a data-toggle="collapse" data-target="#navbar-demo1"><i class="icon-grid3"></i></a></li>
@@ -104,16 +105,6 @@
 		</div>
 
 		<div class="navbar-collapse collapse" id="navbar-demo1">
-			<ul class="nav navbar-nav">
-				<li><a href="/home" class="text-info">Barang</a></li>
-				<li><a href="/panduan" class="text-info">Panduan</a></li>
-				@guest
-				@else
-				<li> <a href="/pinjamanku" class="text-info">Pinjamanku</a></li>
-				@endguest
-				<li><a href="/kontak" class="text-info">Kontak</a></li>
-			</ul>
-
 			<ul class="nav navbar-nav navbar-right">
 				<li>
 					<form action="/search" class="form-search" method="get">
@@ -122,6 +113,12 @@
 						<div class="clear"></div>
 					</form>
 				</li>
+				<li><a href="/home" class="text-info">Beranda</a></li>
+				@guest
+				@else
+				<li> <a href="/pinjamanku" class="text-info">Histori</a></li>
+				@endguest
+			
 				@guest
 				<li>
 					<a href="/carts">
@@ -172,7 +169,7 @@
 	<footer>
 		<div class="center-footer">
 			<div class="foot-element capitalize">
-				<h6>shabby organizer</h6>
+				<h6>PTIPD - UIN BDG</h6>
 				<ul>
 					<li><a href="">bantuan</a></li><br>
 					<li><a href="">syarat & ketentuan</a></li><br>
@@ -181,18 +178,17 @@
 			</div>
 
 			<div class="foot-element capitalize" >
-				<h6>layanan pelanggan</h6>
+				<h6>layanan pengguna</h6>
 				<ul>
 					<li><a href="">panduan</a></li><br>
-					<li><a href="">pembayaran</a></li><br>
-					<li><a href="">Lacak Pesanan Pembeli</a></li><br>
+					<li><a href="">peminjaman</a></li><br>
 					<li><a href="">hubungi kami</a></li><br>
 				</ul>
 			</div>
 			
 			<div style="padding-top: 40px; float: right;">
 				<div style="margin-left: 30px; float: left;">
-					<img src="/assets/images/logo_dark.png" alt="" style="float: left;width:220px; height:35px">
+					<img src="/assets/images/logo_dark.png" alt="" style="float: left;width:220px; height:70px">
 				</div>
 
 				<div class="foot-element" style="margin-top: -10px; margin-left: 30px">
@@ -200,7 +196,7 @@
 					<ul class="contact-us">
 						<li><a href="" target="_blank"><img src="/assets/images/brands/facebook.png"></a></li>
 						<li><a href="" target="_blank"><img src="/assets/images/brands/twitter.png"></a></li>
-						<li><a href="https://www.instagram.com/organizershabby" target="_blank"><img src="/assets/images/brands/insta.png"></a></li>
+						<li><a href="https://www.instagram.com" target="_blank"><img src="/assets/images/brands/insta.png"></a></li>
 						<li><a href="https://api.whatsapp.com/send?phone=6281931334482&text=Halo admin saya mau mengetahui lebih lanjut tentang shabby organizer" target="_blank"><img src="/assets/images/brands/whatsapp.png"></a></li>
 						<li><a href=""><img src="/assets/images/brands/gmail.png"></a></li>
 					</ul>
@@ -209,7 +205,7 @@
 		</div>
 		<div class="clear"></div>
 		<div style="border-top:1px solid #cccccc; padding: 20px; text-align: center;">
-			<p>Copyright &copy; 2018 Granada projects.</p>
+			<p>Copyright &copy; 2018 PTIPD UIN Sunan Gunung Djati Bandung.</p>
 		</div>
 	</footer>
 

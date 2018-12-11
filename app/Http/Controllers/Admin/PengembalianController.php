@@ -10,6 +10,7 @@ use App\Barang;
 use Session;
 use Alert;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class PengembalianController extends BaseController
@@ -32,6 +33,7 @@ class PengembalianController extends BaseController
         $x = Acc::find($id);
         $x->update([
             'activate' => 3,
+            'receive_by' => Auth::user()->id,
         ]);
         $c = Peminjaman::all()->where('kode', $x->kode);
         foreach ($c as $d){

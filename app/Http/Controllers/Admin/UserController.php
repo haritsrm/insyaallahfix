@@ -18,16 +18,20 @@ class UserController extends Controller
     public function suspend($id)
     {
         $user = User::find($id);
-        $user->suspend(1);
+        $user->update([
+            'suspend' => 1,
+        ]);
         Alert::success('Sukses!', 'Berhasil suspend akun');
-        return redirect()->route('admin/showuser');
+        return redirect()->route('admin/show');
     }
 
     public function activate($id)
     {
         $user = User::find($id);
-        $user->suspend(0);
+        $user->update([
+            'suspend' => 0,
+        ]);
         Alert::success('Sukses!', 'Berhasil suspend akun');
-        return redirect()->route('admin/showuser');
+        return redirect()->route('admin/show');
     }
 }

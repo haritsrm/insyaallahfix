@@ -9,6 +9,7 @@ use App\Peminjaman;
 use Session;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Alert;
+use Illuminate\Support\Facades\Auth;
 
 class PeminjamanController extends BaseController
 {
@@ -30,6 +31,15 @@ class PeminjamanController extends BaseController
             'acc_by' => Auth::user()->id,
         ]);
         Alert::success('Acc Success!', 'Peminjaman berhasil di acc');
+        return redirect()->route('admin/verifpeminjaman');
+    }
+
+    public function terima($id)
+    {
+        Acc::find($id)->update([
+            'activate' => 2,
+        ]);
+        Alert::success('Success!', 'Bukti telah diterima!');
         return redirect()->route('admin/verifpeminjaman');
     }
 

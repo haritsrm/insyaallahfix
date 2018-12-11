@@ -14,7 +14,7 @@
     </thead>
     <tbody>
         @foreach($val as $v)
-            @if ($v->activate == 1)
+            @if ($v->activate == 2)
             <tr>
                 <td><a href="#" data-toggle="modal" data-target="#modal{{ $v->kode }}">{{ $v->kode }}</a></td>
                 <td>
@@ -33,7 +33,7 @@
                 <td>
                     <form action="/admina/kembali/{{ $v->id }}" method="post" class="col-md-2">
                         {{ csrf_field() }}
-                        <button type="submit" class="btn btn-success"><i class="icon-checkmark3"></i> OK!</button>
+                        <button type="submit" class="btn btn-success"><i class="icon-checkmark3"></i> Terima Barang</button>
                     </form>
                 </td>
             </tr>

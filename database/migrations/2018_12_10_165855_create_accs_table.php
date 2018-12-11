@@ -18,6 +18,7 @@ class CreateAccsTable extends Migration
             $table->string('kode')->unique();
             $table->integer('activate');
             $table->integer('acc_by')->nullable();
+            $table->integer('receive_by')->nullable();
             $table->timestamps();
         });
     }

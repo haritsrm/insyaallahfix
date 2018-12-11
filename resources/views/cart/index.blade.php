@@ -3,7 +3,7 @@
 @section('content')
 <div class="panel panel-flat">
 	<div class="panel-heading">
-		<h5 class="panel-title bold">Keranjang Belanja</h5>
+		<h5 class="panel-title bold">Data Peminjaman</h5>
 	</div>
 </div>
 
@@ -17,9 +17,9 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th>Produk</th>
+							<th>Pinjaman</th>
 							<th>Kuantitas</th>
-							<th>Total harga</th>
+							<th>Keterangan</th>
 							<th></th>
 						</tr>
 					</thead>
@@ -101,7 +101,7 @@
 	@if(count($carts) != 0)
 	<div class="footer-cart">
 		<div style="float: right;">
-			<h6>Total produk : ({{count($carts)}})</h6>
+			<h6>Total pinjaman : ({{count($carts)}})</h6>
 			<button type="submit">Verifikasi Pinjaman</button>
 		</div>
 		<div class="clear"></div>
@@ -113,7 +113,7 @@
 			var csrf_token = $('meta[name="csrf-token"]').attr('content');
 			swal({
 				title: "Yakin akan menghapus?",
-				text: "Anda dapat memilih lagi untuk membeli!",
+				text: "Anda dapat memilih barang atau ruangan lain!",
 				icon: "warning",
 				buttons: true,
 				dangerMode: true

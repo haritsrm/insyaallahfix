@@ -123,13 +123,6 @@
 									</tbody>
 								</table>
 							<div class="foot-table">
-
-									<div class="msg">
-										<h6 class="text-muted">Pesan : </h6>
-                    					@if($k->acc_by != null)
-										<span>{{ \App\Admin::find($k->acc_by)->name }}</span>
-										@endif
-									</div>
 									<div class="foot-action">
 										<div class="clear"></div>
 

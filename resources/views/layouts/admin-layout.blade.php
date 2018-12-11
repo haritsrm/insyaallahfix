@@ -190,6 +190,8 @@
 									</ul>
 								</li>
 								<li {{{ (Request::is('admina/pengembalian') ? 'class=active' : '') }}}><a href="/admina/pengembalian"><i class="icon-grab"></i><span>Pengembalian Barang</span></a></li>
+								<li {{{ (Request::is('admina/laporan') ? 'class=active' : '') }}}><a href="/admina/laporan"><i class="icon-menu"></i><span>Laporan</span></a></li>
+								
 								<!-- /main -->
 
 							</ul>

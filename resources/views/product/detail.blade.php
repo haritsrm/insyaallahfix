@@ -44,12 +44,12 @@
 			<form action="/cart" method="post" style="float: left; margin-right: -40px">
 			@csrf
 				<div style="margin-top: 20px;">
-					<h6 class="text-muted" style="float: left;">Kuantitas : </h6>
+					<h6 class="text-muted" style="float: left;">Kuantitas Pinjam: </h6>
 					<div class="btnGroup">
 						<button type="button" onclick="btKurang()" class="btJum"><i class="icon-minus3"></i></button>
 						<input type="text" autocomplete="off" onkeyup="limit()" id="jumlah" class="inJum" value="1" name="quantity">
 						<button type="button" onclick="btTambah()" class="btJum"><i class="icon-plus3"></i></button>
-						<p class="text-muted">Tersisa {{ $product->stock }} buah</p>
+						<p class="text-muted">Tersedia {{ $product->stock }} buah</p>
 					</div>
 					<script>
 						@if($product->stock==0)
@@ -110,11 +110,11 @@
 				@csrf
 				<input type="hidden" name="product" value="{{ $product->id }}">
 				<input type="hidden" autocomplete="off" onkeyup="limit()" id="jumlahN" class="inJum" value="1" name="quantity">
-				<input type="submit" class="btnBuy" value="Beli Sekarang">
+				<input type="submit" class="btnBuy" value="Pinjam Sekarang">
 			</form>
 			@else
 			<div style="float: left;margin-top: 98px">
-				<a type="submit" class="btnBuy">Beli Sekarang</a>
+				<a type="submit" class="btnBuy">Pinjam Sekarang</a>
 			</div>
 			@endif
 

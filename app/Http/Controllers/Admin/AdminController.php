@@ -95,4 +95,24 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    public function suspend($id)
+    {
+        $user = Admin::find($id);
+        $user->update([
+            'suspend' => 1,
+        ]);
+        Alert::success('Sukses!', 'Berhasil suspend akun');
+        return redirect()->route('admin/showadmin');
+    }
+
+    public function activate($id)
+    {
+        $user = Admin::find($id);
+        $user->update([
+            'suspend' => 0,
+        ]);
+        Alert::success('Sukses!', 'Berhasil suspend akun');
+        return redirect()->back();
+    }
+
 }

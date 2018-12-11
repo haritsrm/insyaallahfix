@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="panel panel-flat">
-<h4 class="container">Data Admin</h4>
+<h4 class="container">Data User</h4>
 <table class="table datatable-basic">
     <thead>
         <tr>
@@ -38,7 +38,7 @@
 </div>
 
 <div class="panel panel-flat">
-<h4 class="container">Data Admin Ter-suspend</h4>
+<h4 class="container">Data User Ter-suspend</h4>
 <table class="table datatable-basic">
     <thead>
         <tr>

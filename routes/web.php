@@ -54,6 +54,7 @@ Route::group(['prefix' => 'admina', 'middleware' => 'auth:admin'], function()
     Route::get('/peminjaman', 'Admin\PeminjamanController@show')->name('admin/showpeminjaman');
     Route::get('/verifikasipeminjaman', 'Admin\PeminjamanController@show')->name('admin/verifpeminjaman');
     Route::post('/acc/{id}', 'Admin\PeminjamanController@acc');
+    Route::post('/terima/{id}', 'Admin\PeminjamanController@terima');
     Route::post('/block/{id}', 'Admin\PeminjamanController@block');
     Route::get('/pengembalian', 'Admin\PengembalianController@show')->name('admin/pengembalian');
     Route::post('/kembali/{id}', 'Admin\PengembalianController@kembali');
@@ -80,4 +81,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/pinjam', 'User\PeminjamanController@pinjam')->name('pinjam');
     Route::get('/pinjamanku', 'User\PeminjamanController@pinjamanku')->name('pinjamanku');
     Route::post('/pdf/{id}', 'User\PdfController@print');
+    Route::get('/pdf/{id}', function($id){
+        return view('pdf.peminjaman')->with('id', $id);
+    });
 });

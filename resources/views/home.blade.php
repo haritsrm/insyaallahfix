@@ -33,18 +33,6 @@
 		</div>
 
 		<div class="col-sm-9">
-			<div class="bar-action">
-				<h6>Urutkan</h6>
-				<a href="/products terbaru">Terbaru</a>
-				<a href="/products terlaris">Terlaris</a>
-				<select class="dropdown-harga">
-					<option hidden>Harga</option>
-					<option>Harga Tertinggi</option>
-					<option>Harga Terendah</option>
-				</select>
-
-				<div class="clear"></div>
-			</div>
 			@foreach($barangs as $product)
 			<a href="/barang/{{ $product->id }}" class="panel-produk">
 				<div class="panel-img">

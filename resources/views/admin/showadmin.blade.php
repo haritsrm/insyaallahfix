@@ -18,7 +18,7 @@
     </thead>
     <tbody>
         @foreach($val as $v)
-        @if($v->super == 0 && $v->suspend == 0))
+        @if($v->super == 0 && $v->suspend == 0)
         <tr>
             <td>{{ $v->name }}</td>
             <td>{{ $v->email }}</td>
@@ -54,7 +54,7 @@
     </thead>
     <tbody>
         @foreach($val as $v)
-        @if($v->super == 0 && $v->suspend == 1))
+        @if($v->super == 0 && $v->suspend == 1)
         <tr>
             <td>{{ $v->name }}</td>
             <td>{{ $v->email }}</td>

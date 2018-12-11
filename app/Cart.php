@@ -13,4 +13,8 @@ class Cart extends Model
     function FKCart(){
     	return $this->belongsTo(User::class);
     }
+
+    function FKCart1(){
+    	return $this->belongsTo(Barang::class);
+    }
 }
