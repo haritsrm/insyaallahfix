@@ -84,4 +84,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/pdf/{id}', function($id){
         return view('pdf.peminjaman')->with('id', $id);
     });
+    //setting akun
+    Route::get('/setting', 'User\SettingController@index');
+    Route::post('/settingpost', 'User\SettingController@changePassword');
+    Route::post('/changeprofile', 'User\SettingController@changeProfile');
+    //profile
+    Route::get('/profile', function(){
+        return view('layouts.profile');
+    });
 });

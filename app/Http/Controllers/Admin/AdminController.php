@@ -112,7 +112,7 @@ class AdminController extends Controller
             'suspend' => 0,
         ]);
         Alert::success('Sukses!', 'Berhasil suspend akun');
-        return redirect()->back();
+        return redirect()->back()   ;
     }
 
 }

@@ -39,7 +39,8 @@ class BarangController extends BaseController
                 'type' => $req->input('type'),
                 'pict' => $newName,
                 'description' => $req->input('description'),
-                'stock' => $req->input('stock')
+                'stock' => $req->input('stock'),
+                'pinjam' => $req->input('pinjam'),
             ]);
             Alert::success('Sukses!', 'Barang berhasil diinputkan');
             if ($req->input('type') == 'barang'){
@@ -66,7 +67,8 @@ class BarangController extends BaseController
                 'type' => $req->input('type'),
                 'pict' => $newName,
                 'description' => $req->input('description'),
-                'stock' => $req->input('stock')
+                'stock' => $req->input('stock'),
+                'pinjam' => $req->input('pinjam'),
             ]);
         }else{
             $barang = Barang::find($id)->update([
@@ -74,7 +76,8 @@ class BarangController extends BaseController
                 'type' => $req->input('type'),
                 'pict' => Barang::find($id)->pict,
                 'description' => $req->input('description'),
-                'stock' => $req->input('stock')
+                'stock' => $req->input('stock'),
+                'pinjam' => $req->input('pinjam'),
             ]);
         }
         Alert::success('Sukses!', 'Barang berhasil diupdate');

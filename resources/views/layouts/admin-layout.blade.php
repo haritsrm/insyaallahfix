@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Admin | PTIPD</title>
+	<title>Admin - Peminjaman PTIPD</title>
 	<link rel="shortcut icon" type="image/png" href="http://uinsgd.ac.id/wp-content/uploads/2017/12/logo_uin2-e1521272551439.png"/>
 	
 	<link rel="stylesheet" href="/css/style.css">
@@ -88,11 +88,7 @@
 					<ul class="dropdown-menu dropdown-menu-right">
 						<li><a href="/admina/profile"><i class="icon-user-plus"></i> My profile</a></li>
 						<li class="divider"></li>
-						@if(\App\Admin::find(Auth::user()->id)->super == 0)
 						<li><a href="/admina/setting"><i class="icon-cog5"></i> Account settings</a></li>
-						@else
-						<li><a href="/setting"><i class="icon-cog5"></i> Account settings</a></li>
-						@endif
 						<li>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();

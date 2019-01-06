@@ -20,6 +20,7 @@ class CreateBarangsTable extends Migration
             $table->string('pict');
             $table->string('description');
             $table->string('stock');
+            $table->integer('pinjam');
             $table->timestamps();
         });
     }

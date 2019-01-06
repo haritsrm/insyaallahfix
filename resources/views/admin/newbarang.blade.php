@@ -53,6 +53,19 @@
                 </div>
             </div>
 
+            <div class="form-group">
+                <label class="col-lg-3 control-label" style="margin-right:15px">Status:</label>
+                <label class="radio-inline">
+                    <input type="radio" name="pinjam" class="styled" checked="checked" value="1">
+                    Dapat dipinjam
+                </label>
+
+                <label class="radio-inline">
+                    <input type="radio" name="pinjam" class="styled" value="0">
+                    Tidak dapat dipinjam
+                </label>
+            </div>
+
             <div class="text-right">
                 <button type="submit" class="btn btn-primary">Submit form <i class="icon-arrow-right14 position-right"></i></button>
             </div>

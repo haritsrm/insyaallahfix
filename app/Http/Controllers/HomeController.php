@@ -23,20 +23,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $barangs = \App\Barang::all();
+        $barangs = \App\Barang::where('pinjam',1)->get();
         return view('home')->with('barangs', $barangs);
     }
 
     public function indexcat($filter)
     {
-        $barangs = \App\Barang::where('type', $filter)->get();
+        $barangs = \App\Barang::where(['type', $filter],['pinjam',1])->get();
         return view('home')->with('barangs', $barangs);
     }
 
     public function search(Request $req)
     {
         $search = $req->q;
-        $products = \App\Barang::where('name', 'like', '%'.$search.'%')->get();
+        $products = \App\Barang::where(['name', 'like', '%'.$search.'%'],['pinjam',1])->get();
         return view('home')->with('barangs', $products);
     }
 }

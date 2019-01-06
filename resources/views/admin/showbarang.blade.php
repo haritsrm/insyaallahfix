@@ -24,7 +24,13 @@
             <td>{{ $v->name }}</td>
             <td>{{ $v->description }}</td>
             <td>{{ $v->stock }}</td>
-            <td><span class="label label-success">Active</span></td>
+            <td>
+            @if($v->pinjam == 1)
+                <span class="label label-success">Dapat dipinjam</span>
+            @else
+                <span class="label label-warning">Tidak dapat dipinjam</span>
+            @endif
+            </td>
             <td class="text-center">
                 <div class="form-group row">
                     <button class="btn btn-primary col-sm-4" data-toggle="modal" data-target="#modaledit{{ $v->id }}"><i class="icon-pencil"></i></button>
@@ -40,7 +46,13 @@
             <td>{{ $v->name }}</td>
             <td>{{ $v->description }}</td>
             <td>{{ $v->stock }}</td>
-            <td><span class="label label-success">Active</span></td>
+            <td>
+            @if($v->pinjam == 1)
+                <span class="label label-success">Dapat dipinjam</span>
+            @else
+                <span class="label label-warning">Tidak dapat dipinjam</span>
+            @endif
+            </td>
             <td class="text-center">
                 <div class="form-group row">
                     <button class="btn btn-primary col-sm-4" data-toggle="modal" data-target="#modaledit{{ $v->id }}"><i class="icon-pencil"></i></button>
@@ -97,6 +109,19 @@
                                 <div class="col-lg-9">
                                     <textarea name="description" class="form-control" placeholder="Keterangan">{{ $v->description }}</textarea>
                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label" style="margin-right:15px">Status:</label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="pinjam" class="styled" {{{ ($v->pinjam===1 ? 'checked=checked' : '') }}} value="1">
+                                    Dapat dipinjam
+                                </label>
+
+                                <label class="radio-inline">
+                                    <input type="radio" name="pinjam" class="styled" {{{ ($v->pinjam===0 ? 'checked=checked' : '') }}} value="0">
+                                    Tidak dapat dipinjam
+                                </label>
                             </div>
                         </div>
 

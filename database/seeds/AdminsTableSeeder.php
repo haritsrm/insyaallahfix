@@ -29,6 +29,7 @@ class AdminsTableSeeder extends Seeder
                 'pict' => 'router.png',
                 'description' => 'ini router',
                 'stock' => 100,
+                'pinjam' => 1,
             ],
             [
                 'name' => 'Switch',
@@ -36,6 +37,7 @@ class AdminsTableSeeder extends Seeder
                 'pict' => 'switch.png',
                 'description' => 'ini switch',
                 'stock' => 100,
+                'pinjam' => 1,
             ],
         ]);
     }
