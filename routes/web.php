@@ -59,7 +59,7 @@ Route::group(['prefix' => 'admina', 'middleware' => 'auth:admin'], function()
     Route::get('/pengembalian', 'Admin\PengembalianController@show')->name('admin/pengembalian');
     Route::post('/kembali/{id}', 'Admin\PengembalianController@kembali');
     //email
-    Route::get('/mail', 'MailController@send');
+    // Route::get('/mail', 'MailController@send');
     //setting akun
     Route::get('/setting', 'Admin\SettingController@index');
     Route::post('/settingpost', 'Admin\SettingController@changePassword');
@@ -68,6 +68,8 @@ Route::group(['prefix' => 'admina', 'middleware' => 'auth:admin'], function()
     Route::get('/profile', function(){
         return view('layouts.profile');
     });
+
+    Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 });
 
 
