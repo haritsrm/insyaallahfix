@@ -209,6 +209,7 @@
 						<div class="page-title">
 							<h4>
 								<span class="text-semibold">{{{ (Request::is('admina') ? 'Dashboard' : '') }}}</span>
+								<span class="text-semibold">{{{ (Request::is('admina/dashboard') ? 'Dashboard' : '') }}}</span>
                                 <span class="text-semibold">{{{ (Request::is('admina/newadmin') ? 'Tambah Admin' : '') }}}</span>
                                 <span class="text-semibold">{{{ (Request::is('admina/showadmin') ? 'Data Admin' : '') }}}</span>
                                 <span class="text-semibold">{{{ (Request::is('admina/showbarang') ? 'Data Barang' : '') }}}</span>

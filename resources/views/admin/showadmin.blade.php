@@ -1,3 +1,4 @@
+@if(Auth::user()->super == 1)
 @extends('layouts.admin-layout')
 
 @section('content')
@@ -103,3 +104,4 @@ function suspendAdmin(id){
     }
 </script>
 @endsection
+@endif

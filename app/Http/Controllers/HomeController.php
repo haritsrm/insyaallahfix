@@ -29,14 +29,14 @@ class HomeController extends Controller
 
     public function indexcat($filter)
     {
-        $barangs = \App\Barang::where(['type', $filter],['pinjam',1])->get();
+        $barangs = \App\Barang::where('type', $filter)->where('pinjam',1)->get();
         return view('home')->with('barangs', $barangs);
     }
 
     public function search(Request $req)
     {
         $search = $req->q;
-        $products = \App\Barang::where(['name', 'like', '%'.$search.'%'],['pinjam',1])->get();
+        $products = \App\Barang::where('name', 'like', '%'.$search.'%')->where('pinjam',1)->get();
         return view('home')->with('barangs', $products);
     }
 }
