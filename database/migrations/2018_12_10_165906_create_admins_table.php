@@ -21,6 +21,7 @@ class CreateAdminsTable extends Migration
             $table->string('password');
             $table->integer('super');
             $table->integer('suspend');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

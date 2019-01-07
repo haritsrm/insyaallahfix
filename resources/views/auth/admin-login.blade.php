@@ -1,6 +1,12 @@
 @extends('layouts.layout_login_admin')
 
 @section('content')
+@if ($errors->has('suspend'))
+    <div class="alert bg-warning alert-styled-left" style="width:400px;position:absolute">
+        <button type="button" class="close" data-dismiss="alert"><span>×</span><span class="sr-only">Close</span></button>
+        <span class="text-semibold">Warning!</span> {{ $errors->first('suspend') }}
+    </div>
+@endif
 <div style="margin-top: 100px">
 	<!-- Advanced login -->
 	<form action="/admin/login" method="post">
@@ -12,7 +18,7 @@
 			</div>
 
 			<div class="form-group has-feedback has-feedback-left">
-				<input type="text" class="form-control input-lg" placeholder="Email" name="email">
+				<input type="text" class="form-control input-lg" placeholder="Email" name="email" autofocus>
 				<div class="form-control-feedback">
 					<i class="icon-user text-muted"></i>
 				</div>

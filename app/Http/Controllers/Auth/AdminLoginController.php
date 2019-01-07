@@ -31,9 +31,17 @@ class AdminLoginController extends Controller
      *
      * @var string
      */
-    public function authenticated(){
-        Alert::success('Here your dashboard!', 'Welcome back Admin');
-        return redirect()->route('admin.home');
+    public function authenticated(Request $request, $admin){
+        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password, 'suspend' => 0], $request->remember)) {
+
+            Alert::success('Here your dashboard!', 'Welcome back Admin');
+            return redirect()->route('admin.home');
+        }
+        else if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password, 'suspend' => 1], $request->remember))
+        {
+            Auth::guard('admin')->logout();
+            return redirect()->back()->withErrors(['suspend' => 'This account has been suspended!']);
+        }
     }
 
     //protected $redirectTo = '/admin/dashboard';
