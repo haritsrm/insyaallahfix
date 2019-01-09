@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Acc;
 use App\Peminjaman;
 use App\Barang;
+use App\Log;
 use Session;
 use Alert;
 use Carbon\Carbon;
@@ -43,6 +44,11 @@ class PengembalianController extends BaseController
                 'stock' => $newstok
             ]);
         }
+        Log::create([
+            'status' => 'success',
+            'message' => 'Pengembalian pinjaman, '.$x->kode,
+            'user' => Auth::user()->name,
+        ]);
         Alert::success('Pengembalian Sukses!', 'Pengembalian barang berhasil');
         return redirect()->route('admin/pengembalian');
     }

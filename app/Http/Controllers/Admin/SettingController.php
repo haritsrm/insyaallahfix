@@ -33,13 +33,28 @@ class SettingController extends BaseController
                 $cp = Admin::find(Auth::user()->id);
                 $cp->password = Hash::make($req->input('newpass'));
                 $cp->save();
+                Log::create([
+                    'status' => 'success',
+                    'message' => 'Mengubah password akun',
+                    'user' => Auth::user()->name,
+                ]);
                 Alert::success("Berhasil". "Berhasil merubah password!");
                 return redirect()->back();
             }else{
+                Log::create([
+                    'status' => 'warning',
+                    'message' => 'Password tidak sesuai',
+                    'user' => Auth::user()->name,
+                ]);
                 Alert::warning("Password tidak sesuai", "Warning!");
                 return redirect()->back();
             }
         }else{
+            Log::create([
+                'status' => 'error',
+                'message' => 'Gagal mengubah password',
+                'user' => Auth::user()->name,
+            ]);
             Alert::error("Oops..". "Harap isi field!");
             return redirect()->back();
         }
@@ -49,6 +64,11 @@ class SettingController extends BaseController
     {
         if(!Auth::user()->suspend == 0){
             if($req->input('name') == '' || $req->input('email') == '' || $req->input('no_tlp') == ''){
+                Log::create([
+                    'status' => 'error',
+                    'message' => 'Gagal merubah data diri',
+                    'user' => Auth::user()->name,
+                ]);
                 Alert::error("Error!", "Data tidak boleh kosong");
                 return redirect()->back();
             }else{
@@ -58,11 +78,21 @@ class SettingController extends BaseController
                     'email' => $req->input('email'),
                     'no_tlp' => $req->input('no_tlp')
                 ]);
+                Log::create([
+                    'status' => 'success',
+                    'message' => 'Mengubah data diri',
+                    'user' => Auth::user()->name,
+                ]);
                 Alert::success("Berhasil!", "Berhasil merubah profil");
                 return redirect()->back();
             }
         }else{
             if($req->input('name') == '' || $req->input('email') == '' || $req->input('no_tlp') == ''){
+                Log::create([
+                    'status' => 'error',
+                    'message' => 'Gagal merubah data diri',
+                    'user' => Auth::user()->name,
+                ]);
                 Alert::error("Error!", "Data tidak boleh kosong");
                 return redirect()->back();
             }else{
@@ -71,6 +101,11 @@ class SettingController extends BaseController
                     'name' => $req->input('name'),
                     'email' => $req->input('email'),
                     'no_tlp' => $req->input('no_tlp'),
+                ]);
+                Log::create([
+                    'status' => 'success',
+                    'message' => 'Mengubah data diri',
+                    'user' => Auth::user()->name,
                 ]);
                 Alert::success("Berhasil!", "Berhasil merubah profil");
                 return redirect()->back();

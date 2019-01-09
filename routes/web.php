@@ -70,6 +70,19 @@ Route::group(['prefix' => 'admina', 'middleware' => 'auth:admin'], function()
     });
 
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+    Route::get('/logs', function(){
+        $data = \App\Log::all();
+        return view('admin.showlog')->with('val', $data);
+    });
+    //laporan
+    Route::get('/laporan', 'Admin\LaporanController@index')->name('admin.laporan');
+    Route::get('/laporanbarang', 'Admin\LaporanController@barang')->name('admin.laporanbarang');
+
+    Route::post('/printlaporan', 'Admin\LaporanController@print')->name('admin.printlaporan');
+    Route::get('/printlaporan', 'Admin\LaporanController@println')->name('admin.printlap');
+
+    Route::post('/printlaporanbarang', 'Admin\LaporanController@printbarang')->name('admin.printlaporanbarang');
+    Route::get('/printlaporanbarang', 'Admin\LaporanController@printlnbarang')->name('admin.printlapbarang');
 });
 
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Barang;
 use Session;
 use Alert;
+use App\Log;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class BarangController extends BaseController
@@ -44,11 +45,26 @@ class BarangController extends BaseController
             ]);
             Alert::success('Sukses!', 'Barang berhasil diinputkan');
             if ($req->input('type') == 'barang'){
+                Log::create([
+                    'status' => 'success',
+                    'message' => 'Menambahkan barang, '.$req->input('name'),
+                    'user' => Auth::user()->name,
+                ]);
                 return redirect()->route('admin/newbarang');
             }else{
+                Log::create([
+                    'status' => 'success',
+                    'message' => 'Menambahkan ruangan, '.$req->input('name'),
+                    'user' => Auth::user()->name,
+                ]);
                 return redirect()->route('admin/newruangan');
             }
         }else{
+            Log::create([
+                'status' => 'warning',
+                'message' => 'Gagal menambahkan barang, '.$req->input('name'),
+                'user' => Auth::user()->name,
+            ]);
             alert()->warning('Gambar tidak boleh kosong!','Warning!');
             return redirect()->back();
         }
@@ -80,13 +96,23 @@ class BarangController extends BaseController
                 'pinjam' => $req->input('pinjam'),
             ]);
         }
+        Log::create([
+            'status' => 'success',
+            'message' => 'Mengubah barang, '.$req->input('name'),
+            'user' => Auth::user()->name,
+        ]);
         Alert::success('Sukses!', 'Barang berhasil diupdate');
         return redirect()->route('admin/showbarang');
     }
 
     public function delete($id)
     {
-        Barang::destroy($id);
+        $barang = Barang::destroy($id);
+        Log::create([
+            'status' => 'success',
+            'message' => 'Menghapus barang, '.$barang->name,
+            'user' => Auth::user()->name,
+        ]);
         Alert::success("Berhasil hapus barang", "Berhasil!");
         return redirect()->route('admin/showbarang');
     }

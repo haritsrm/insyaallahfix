@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Peminjaman;
 use App\Acc;
 use App\Barang;
+use App\Log;
 
 class PeminjamanController extends Controller
 {
@@ -42,6 +43,11 @@ class PeminjamanController extends Controller
         Acc::create([
             'kode' => $kode,
             'activate' => 0,
+        ]);
+        Log::create([
+            'status' => 'info',
+            'message' => 'Meminjam barang, '.$kode,
+            'user' => Auth::user()->name,
         ]);
         Alert::info('Harap menunggu persetujuan admin','Wait..');
         return redirect('pinjamanku');

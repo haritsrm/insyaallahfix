@@ -143,6 +143,7 @@
 								<!-- Main -->
 								<li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
                                 <li {{{ (Request::is('admina') ? 'class=active' : '') }}}><a href="/admina"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+                                <li {{{ (Request::is('admina/logs') ? 'class=active' : '') }}}><a href="/admina/logs"><i class=" icon-history"></i> <span>Logs</span></a></li>
                                 @if (\App\Admin::find(Auth::user()->id)->super == 1)
 								<li class="navigation-header"><span>Admin</span> <i class="icon-menu" title="Admins"></i></li>
                                 <li><a href="#"><i class="icon-users"></i> <span> Admin</span></a>
@@ -186,7 +187,7 @@
 									</ul>
 								</li>
 								<li {{{ (Request::is('admina/pengembalian') ? 'class=active' : '') }}}><a href="/admina/pengembalian"><i class="icon-grab"></i><span>Pengembalian Barang</span></a></li>
-								<li {{{ (Request::is('admina/laporan') ? 'class=active' : '') }}}><a href="/admina/laporan"><i class="icon-menu"></i><span>Laporan</span></a></li>
+								<li {{{ (Request::is('admina/laporan') ? 'class=active' : '') }}}><a href="/admina/laporan"><i class="icon-printer4"></i><span>Laporan</span></a></li>
 								
 								<!-- /main -->
 
@@ -218,6 +219,9 @@
                                 <span class="text-semibold">{{{ (Request::is('admina/newruangan') ? 'Tambah Ruangan' : '') }}}</span>
                                 <span class="text-semibold">{{{ (Request::is('admina/peminjaman') ? 'Data Peminjaman' : '') }}}</span>
                                 <span class="text-semibold">{{{ (Request::is('admina/verifikasipeminjaman') ? 'Verifikasi Peminjaman' : '') }}}</span>
+                                <span class="text-semibold">{{{ (Request::is('admina/logs') ? 'Log' : '') }}}</span>
+                                <span class="text-semibold">{{{ (Request::is('admina/laporan') ? 'Laporan' : '') }}}</span>
+                                <span class="text-semibold">{{{ (Request::is('admina/laporanbarang') ? 'Laporan Barang' : '') }}}</span>
                                 <span class="text-semibold">{{{ (Request::is('admina/pengembalian') ? 'Form Pengembalian' : '') }}}</span>  - Admin Panel
                             </h4>
 						</div>

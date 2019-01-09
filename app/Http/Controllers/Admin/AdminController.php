@@ -12,6 +12,7 @@ use App\Admin;
 use App\Peminjaman;
 use App\Acc;
 use App\User;
+use App\Log;
 
 class AdminController extends Controller
 {
@@ -49,6 +50,11 @@ class AdminController extends Controller
         }
         $admin->save();
 
+        Log::create([
+            'status' => 'success',
+            'message' => 'Memperbaharui data admin',
+            'user' => Auth::user()->name,
+        ]);
         Alert::success('Memperbarui data admin!', 'Berhasil');
         return redirect()->back();
     }
@@ -77,8 +83,14 @@ class AdminController extends Controller
             'super' => 0,
             'suspend' => 0,
         ]);
-            Alert::success('Register Success!', 'Berhasil tambah admin');
-            return redirect()->route('admin/new');
+
+        Log::create([
+            'status' => 'success',
+            'message' => 'Register admin baru, '.$req->input('name'),
+            'user' => Auth::user()->name,
+        ]);
+        Alert::success('Register Success!', 'Berhasil tambah admin');
+        return redirect()->route('admin/new');
     }
 
     public function show()
@@ -89,9 +101,14 @@ class AdminController extends Controller
     
     public function deletePelanggan($id)
     {
-        User::find($id)->delete();
+        $user = User::find($id)->delete();
 
-        Alert::success('Menghapus '.$category->name.' dari daftar!', 'Berhasil');
+        Log::create([
+            'status' => 'success',
+            'message' => 'Menghapus user, '.$user->name,
+            'user' => Auth::user()->name,
+        ]);
+        Alert::success('Menghapus '.$user->name.' dari daftar!', 'Berhasil');
         return redirect()->back();
     }
 
@@ -100,6 +117,12 @@ class AdminController extends Controller
         $user = Admin::find($id);
         $user->update([
             'suspend' => 1,
+        ]);
+
+        Log::create([
+            'status' => 'success',
+            'message' => 'Suspend admin, '.$user->name,
+            'user' => Auth::user()->name,
         ]);
         Alert::success('Sukses!', 'Berhasil suspend akun');
         return redirect()->route('admin/showadmin');
@@ -111,7 +134,13 @@ class AdminController extends Controller
         $user->update([
             'suspend' => 0,
         ]);
-        Alert::success('Sukses!', 'Berhasil suspend akun');
+
+        Log::create([
+            'status' => 'success',
+            'message' => 'Activate admin, '.$user->name,
+            'user' => Auth::user()->name,
+        ]);
+        Alert::success('Sukses!', 'Berhasil activate akun');
         return redirect()->back()   ;
     }
 

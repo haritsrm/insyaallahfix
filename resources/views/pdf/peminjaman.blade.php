@@ -10,14 +10,19 @@
 </head>
 <body style="font-family:Arial, Helvetica, sans-serif">
     {{! $data = App\Acc::find($id) }}
-    <img src="assets/images/logo_light.png" width=100 style="float:left">
-    <h1 align="left" >PTIPD</h1>
-    <h4 align="left" style="margin-top:-20px">PUSAT TEKNOLOGI INFORMASI DAN PANGKALAN DATA</h4>
-    <hr>
+    <div class="header">
+        <div style="float:left;margin-right:10px">
+            <img src="assets/images/side.png" alt="" style="margin-top:-22px">
+        </div>
+        <img src="assets/images/logo_light.png" width=100 style="float:left">
+        <h1 align="left" >PTIPD</h1>
+        <h4 align="left" style="margin-top:-20px">PUSAT TEKNOLOGI INFORMASI DAN PANGKALAN DATA</h4>
+    </div>
+    <br>
     <br>
     <h2 align="center"><strong>Form Peminjaman Barang dan Ruangan</strong></h2>
     <br>
-    <p>(Isikan data berikut dengan lengkap dan jelas!)</p>
+    <i>(Isikan data berikut dengan lengkap dan jelas!)</i>
     <table>
         <tr>
             <td>Nama</td>
@@ -25,7 +30,7 @@
             <td>{{ Auth::user()->name }}</td>
         </tr>
           <tr>
-            <td>Fakultas/ Bagian</td>
+            <td>Fakultas/Jabatan</td>
             <td>:</td>
             <td>{{ \App\User::find(Auth::user()->id)->jabatan }}</td>
         </tr>
@@ -45,16 +50,16 @@
             <td>{{ date('d-m-Y', strtotime(App\Peminjaman::where('kode', $data->kode)->first()->tgl_kembali)) }}</td>
         </tr>
         <tr>
-            <td>Pinjaman</td>
-            <td>:</td>
+            <td valign="top">Pinjaman</td>
+            <td valign="top">:</td>
             {{! $barang = App\Peminjaman::all()->where('kode', $data->kode) }}
-            @foreach($barang as $b)
-            <tr>
-                <td></td>
-                <td></td>
-                <td>{{ App\Barang::find($b->barang_id)->name }} sebanyak {{ $b->jumlah }} Buah</td>          
-            </tr>
-            @endforeach
+            <td>
+                <div style="border:1px solid black;width:200%">
+                    @foreach($barang as $b)
+                    <p style="margin:10px">{{ App\Barang::find($b->barang_id)->name }} sebanyak {{ $b->jumlah }} Buah</p>
+                    @endforeach
+                </div>
+            </td>
         </tr>
     </table>
     <p>Dengan ini menyatakan bahwa isian di atas diisi dengan sebenar-benarnya.</p>
@@ -78,6 +83,16 @@
         <br>
         <hr width="200px">
         <p align="center">{{ Auth::user()->name }}</p>    
+    </div>
+    <br>
+    <div style="position:absolute;margin-left:100px;margin-top:500px;font-size:10px">
+        <table>
+            <tr>
+                <td width="100" align="right">Jalan A.H. Nasution No. 105, Gedung Lecture Hall Lantai 4</td>
+                <td width="15"></td>
+                <td width="150" style="background-color:green;border-radius:5px"><span style="color:white;padding:0px 20px">ptipd@uinsgd.ac.id | <span style="color:blue"> http://ptipd.uinsgd.ac.id </span> | +6282320333030</span></td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
