@@ -71,7 +71,7 @@ Route::group(['prefix' => 'admina', 'middleware' => 'auth:admin'], function()
 
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
     Route::get('/logs', function(){
-        $data = \App\Log::all();
+        $data = \App\Log::latest()->get();
         return view('admin.showlog')->with('val', $data);
     });
     //laporan
@@ -107,4 +107,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/profile', function(){
         return view('layouts.profile');
     });
+});
+
+Route::get('/laporan/{id]', function($id){
+    return view('pdf.peminjaman')->with('id', $id);
 });

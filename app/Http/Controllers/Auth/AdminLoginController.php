@@ -44,12 +44,6 @@ class AdminLoginController extends Controller
         }
     }
 
-    public function logout(Request $request)
-    {
-        Auth::guard('admin')->logout();
-        return redirect()->route('admin.login');
-    }
-
     //protected $redirectTo = '/admin/dashboard';
 
     /**

@@ -73,7 +73,7 @@
         <div class="row">
           <div class="col-md-8 col-md-offset-2 intro-text">
             <h1>Peminjaman PTIPD</h1>
-            <p>Website ini untuk melakukan peminjaman barang maupun ruangan di UIN Sunan Gunung Djati Bandung.</p>
+            <p>Website ini untuk melakukan peminjaman barang maupun ruangan di PTIPD UIN Sunan Gunung Djati Bandung.</p>
             <a href="#about" class="btn btn-custom btn-lg page-scroll">More Info</a> </div>
         </div>
       </div>

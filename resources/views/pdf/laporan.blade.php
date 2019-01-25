@@ -20,12 +20,14 @@
 </head>
 <body style="font-family:Arial, Helvetica, sans-serif">
     <div class="header">
-        <div style="float:left;margin-right:10px">
-            <img src="assets/images/side.png" alt="" style="margin-top:-22px">
+        <div style="float:left;margin-right:10px;">
+            <img src="assets/images/side.png" alt="" width="70" height="70" style="margin-top:-2px">
         </div>
-        <img src="assets/images/logo_light.png" width=100 style="float:left">
-        <h1 align="left" >PTIPD</h1>
-        <h4 align="left" style="margin-top:-20px">PUSAT TEKNOLOGI INFORMASI DAN PANGKALAN DATA</h4>
+        <img src="assets/images/logo_light.png" width="60" height="60" style="float:left">
+        
+        <div style="margin-left: 10px">    
+            <h3 align="left" >PTIPD</h3>
+            <p align="left" style="margin-top:-20px; font-size: 0.8em">PUSAT TEKNOLOGI INFORMASI DAN PANGKALAN DATA</p>
     </div>
     <hr>
     <br>

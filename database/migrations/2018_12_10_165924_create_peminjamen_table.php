@@ -16,13 +16,19 @@ class CreatePeminjamenTable extends Migration
         Schema::create('peminjamen', function (Blueprint $table) {
             $table->increments('id');
             $table->string('kode');
-            $table->integer('user_id')->unsigned();
-            $table->integer('barang_id')->unsigned();
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('barang_id');
             $table->integer('jumlah');
             $table->date('tgl_pinjam');
             $table->date('tgl_kembali');
             $table->timestamps();
         });
+
+        Schema::table('peminjamen', function(Blueprint $kolom) {
+            $kolom->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $kolom->foreign('barang_id')->references('id')->on('barangs')->onDelete('cascade')->onUpdate('cascade');
+        });
+
     }
 
     /**

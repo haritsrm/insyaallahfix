@@ -27,4 +27,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    function PKUser(){
+        return $this->hasMany(Peminjaman::class);
+    }
+
+    function PKUser2(){
+        return $this->hasMany(Cart::class);
+    }
 }

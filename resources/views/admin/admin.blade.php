@@ -54,11 +54,11 @@
     </div>
   </div>
   <hr>
-  <div class="w3-container">
+<!--   <div class="w3-container">
     <h5>General Stats</h5>
     <p>New Visitors</p>
     <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-green" style="width:25%">+25%</div>
+      <div class="w3-ontainer w3-center w3-padding w3-green" style="width:25%">+25%</div>
     </div>
 
     <p>New Users</p>
@@ -70,5 +70,5 @@
     <div class="w3-grey">
       <div class="w3-container w3-center w3-padding w3-red" style="width:75%">75%</div>
     </div>
-</div>
+  </div> -->
 @endsection

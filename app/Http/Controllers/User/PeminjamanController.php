@@ -22,7 +22,15 @@ class PeminjamanController extends Controller
 
     public function pinjam(Request $req)
     {
-        $kode = rand(10000,1001238912);
+        $kode=1;
+        if(count(\App\Peminjaman::all())==0)
+            {
+                $kode=1;
+            }
+            else
+            {
+                $kode+=\App\Peminjaman::recent()->first()->kode;
+            }
         $carts = \App\Cart::where('id_user', Auth::user()->id)->get();
         foreach($carts as $cart){
             $stok = Barang::find($cart->id_barang)->stock;
@@ -42,7 +50,7 @@ class PeminjamanController extends Controller
         $carts = \App\Cart::where('id_user', Auth::user()->id)->delete();
         Acc::create([
             'kode' => $kode,
-            'activate' => 0,
+            'activate' => 0, 
         ]);
         Log::create([
             'status' => 'info',
