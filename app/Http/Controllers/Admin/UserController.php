@@ -7,6 +7,7 @@ use App\User;
 use App\Log;
 use Alert;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -28,7 +29,7 @@ class UserController extends Controller
             'user' => Auth::user()->name,
         ]);
         Alert::success('Sukses!', 'Berhasil suspend akun');
-        return redirect()->route('admin/show');
+        return redirect()->back();
     }
 
     public function activate($id)
@@ -43,6 +44,6 @@ class UserController extends Controller
             'user' => Auth::user()->name,
         ]);
         Alert::success('Sukses!', 'Berhasil activate akun');
-        return redirect()->route('admin/show');
+        return redirect()->back();
     }
 }

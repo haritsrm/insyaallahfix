@@ -28,9 +28,7 @@
     <div class="form-group col-md-3">
         <label class="control-label">Tahun:</label>
         <div>
-            <select id="year" class="select-search" name="year" required>
-                <option value="2019">2019</option>
-            </select>
+            <input type="number" name="year" id="year" required class="form-control">
         </div>
     </div>
     <input type="submit" class="btn btn-info" style="padding: 20px 10px" value="Lihat laporan">

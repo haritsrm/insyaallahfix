@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -78,7 +79,7 @@ class RegisterController extends Controller
         Log::create([
             'status' => 'success',
             'message' => 'Register user, '.$user->name,
-            'user' => Auth::user()->name,
+            'user' => $user->name,//Auth::user()->name,
         ]);
         return $user;
     }

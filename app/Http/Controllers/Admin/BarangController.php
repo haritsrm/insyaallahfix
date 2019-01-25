@@ -9,6 +9,7 @@ use Session;
 use Alert;
 use App\Log;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Illuminate\Support\Facades\Auth;
 
 class BarangController extends BaseController
 {
@@ -43,7 +44,7 @@ class BarangController extends BaseController
                 'stock' => $req->input('stock'),
                 'pinjam' => $req->input('pinjam'),
             ]);
-            Alert::success('Sukses!', 'Barang berhasil diinputkan');
+            Alert::success('Sukses!', 'Item berhasil diinputkan');
             if ($req->input('type') == 'barang'){
                 Log::create([
                     'status' => 'success',
@@ -101,8 +102,8 @@ class BarangController extends BaseController
             'message' => 'Mengubah barang, '.$req->input('name'),
             'user' => Auth::user()->name,
         ]);
-        Alert::success('Sukses!', 'Barang berhasil diupdate');
-        return redirect()->route('admin/showbarang');
+        Alert::success('Sukses!', 'Item berhasil diupdate');
+        return redirect()->back();
     }
 
     public function delete($id)
@@ -113,7 +114,7 @@ class BarangController extends BaseController
             'message' => 'Menghapus barang, '.$barang->name,
             'user' => Auth::user()->name,
         ]);
-        Alert::success("Berhasil hapus barang", "Berhasil!");
-        return redirect()->route('admin/showbarang');
+        Alert::success("Berhasil hapus item", "Berhasil!");
+        return redirect()->back();
     }
 }

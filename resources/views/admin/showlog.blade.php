@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="panel panel-flat">
-<h4 class="container">Daftar Peminjaman</h4>
+<h4 class="container">Log</h4>
 <table class="table datatable-basic">
     <thead>
         <tr>

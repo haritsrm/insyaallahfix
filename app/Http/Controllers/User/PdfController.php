@@ -20,7 +20,7 @@ class PdfController extends BaseController
     {
         $data = Acc::find($id);
         view('pdf.peminjaman')->with('data', $data);
-        $pdf = PDF::loadView('pdf.peminjaman', $data)->setPaper('a4', 'potrait');
+        $pdf = PDF::loadView('pdf.peminjaman', $data)->setPaper('A4', 'potrait');
         return $pdf->download('Bukti Peminjaman '.Auth::user()->name.'.pdf');
     }
 }
