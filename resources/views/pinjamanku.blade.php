@@ -42,11 +42,11 @@
 								<p class="text-muted">Belum ada pesanan</p>
 							</div>
 							@else
-							@foreach(\App\Acc::where('activate', 0)->get() as $k)
-                                @if(\App\Peminjaman::where('kode',$k->kode)->where('user_id', Auth::user()->id)->get() !== null)
-									{{! $od = \App\Peminjaman::where('kode',$k->kode)->where('user_id', Auth::user()->id)->get() }}
+							@foreach(\App\Acc::where('activate', 0)->get() as $k)        
+								{{! $od = \App\Peminjaman::where('kode',$k->kode)->where('user_id', Auth::user()->id)->get() }}
+								@if(count($od)!=0)
+								<h4 style="margin-left:20px">Kode peminjaman : {{ $k->kode }}</h4>
 								<table class="table">
-                                    <h4 style="margin-left:20px">Kode peminjaman : {{ $k->kode }}</h4>
 									<thead>
 										<tr>
 											<th><h6>Item</h6></th>
@@ -96,8 +96,8 @@
 							</div>
 							@else
 							@foreach(\App\Acc::where('activate', 1)->get() as $k)
-                                @if(\App\Peminjaman::where('kode',$k->kode)->where('user_id', Auth::user()->id)->get())
-									{{! $od = \App\Peminjaman::where('kode',$k->kode)->where('user_id', Auth::user()->id)->get() }}
+								{{! $od = \App\Peminjaman::where('kode',$k->kode)->where('user_id', Auth::user()->id)->get() }}
+								@if(count($od)!=0)
                                     <h4 style="margin-left:20px">Kode peminjaman : {{ $k->kode }}</h4>
 								<table class="table">
 									<thead>
@@ -164,8 +164,8 @@
 							</div>
 							@else
 							@foreach(\App\Acc::where('activate', 2)->get() as $k)
-                                @if(\App\Peminjaman::where('kode',$k->kode)->where('user_id', Auth::user()->id)->get())
-									{{! $od = \App\Peminjaman::where('kode',$k->kode)->where('user_id', Auth::user()->id)->get() }}
+								{{! $od = \App\Peminjaman::where('kode',$k->kode)->where('user_id', Auth::user()->id)->get() }}
+								@if(count($od)!=0)
                                     <h4 style="margin-left:20px">Kode peminjaman : {{ $k->kode }}</h4>
 								<table class="table">
 									<thead>
@@ -218,8 +218,8 @@
 							</div>
 							@else
 							@foreach(\App\Acc::where('activate', 3)->get() as $k)
-                                @if(\App\Peminjaman::where('kode',$k->kode)->where('user_id', Auth::user()->id)->get())
-									{{! $od = \App\Peminjaman::where('kode',$k->kode)->where('user_id', Auth::user()->id)->get() }}
+								{{! $od = \App\Peminjaman::where('kode',$k->kode)->where('user_id', Auth::user()->id)->get() }}
+								@if(count($od)!=0)
                                     <h4 style="margin-left:20px">Kode peminjaman : {{ $k->kode }}</h4>
 								<table class="table">
 									<thead>
@@ -272,8 +272,8 @@
 							</div>
 							@else
 							@foreach(\App\Acc::where('activate', 4)->get() as $k)
-                                @if(\App\Peminjaman::where('kode',$k->kode)->where('user_id', Auth::user()->id)->get())
-									{{! $od = \App\Peminjaman::where('kode',$k->kode)->where('user_id', Auth::user()->id)->get() }}
+								{{! $od = \App\Peminjaman::where('kode',$k->kode)->where('user_id', Auth::user()->id)->get() }}
+								@if(count($od)!=0)
                                     <h4 style="margin-left:20px">Kode peminjaman : {{ $k->kode }}</h4>
 								<table class="table">
 									<thead>
