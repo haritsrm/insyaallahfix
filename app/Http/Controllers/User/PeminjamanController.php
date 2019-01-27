@@ -23,14 +23,10 @@ class PeminjamanController extends Controller
     public function pinjam(Request $req)
     {
         $kode=1;
-        if(count(\App\Peminjaman::all())==0)
-            {
-                $kode=1;
-            }
-            else
-            {
-                $kode+=\App\Peminjaman::recent()->first()->kode;
-            }
+        if(count(\App\Peminjaman::all())!==0)
+        {
+            $kode+=\App\Peminjaman::latest()->first()->kode;
+        }
         $carts = \App\Cart::where('id_user', Auth::user()->id)->get();
         foreach($carts as $cart){
             $stok = Barang::find($cart->id_barang)->stock;
