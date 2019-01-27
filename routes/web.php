@@ -95,10 +95,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/verifikasi', 'User\PeminjamanController@verifikasi')->name('verifikasi');
     Route::post('/pinjam', 'User\PeminjamanController@pinjam')->name('pinjam');
     Route::get('/pinjamanku', 'User\PeminjamanController@pinjamanku')->name('pinjamanku');
-    Route::post('/pdf/{id}', 'User\PdfController@print');
-    Route::get('/pdf/{id}', function($id){
-        return view('pdf.peminjaman')->with('id', $id);
-    });
+    Route::get('/pdf/{id}', 'User\PdfController@print');
+    // Route::get('/pdf/{id}', function($id){
+    //     return view('pdf.peminjaman')->with('id', $id);
+    // });
     //setting akun
     Route::get('/setting', 'User\SettingController@index');
     Route::post('/settingpost', 'User\SettingController@changePassword');
