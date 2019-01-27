@@ -129,10 +129,10 @@
 										<div class="clear"></div>
 
 										<div class="footer-table">
-											<!-- <form action="/pdf/{{ $k->id }}" method="post"> -->
-												<!-- @csrf -->
-												<a href="/pdf/{{ $k->id }}"><button style="margin:0px 3px" class="btn btn-default">Download</button></a>
-											<!-- </form>										 -->
+											<form action="/pdf/{{ $k->id }}" method="post">
+												@csrf
+												<button style="margin:0px 3px" class="btn btn-default">Download</button>                
+											</form>										
 										</div>					
 									</div>
 									<div class="clear"></div>

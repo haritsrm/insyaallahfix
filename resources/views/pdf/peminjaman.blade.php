@@ -9,7 +9,7 @@
     <script src="main.js"></script>
 </head>
 <body style="font-family:Arial, Helvetica, sans-serif">
-    {{! $data = App\Acc::find($id) }}
+    {{! $data = \App\Acc::find($id) }}
     <div class="header" style="width: 85%;margin:0px auto">
         <div style="float:left;margin-right:10px;">
             <img src="assets/images/side.png" alt="" width="70" height="70" style="margin-top:-2px">
@@ -33,7 +33,7 @@
             <tr>
                 <td>Kode Peminjaman</td>
                 <td>:</td>
-                <td>{{App\Peminjaman::where('kode', $data->kode)->first()->kode}}</td>
+                <td>{{\App\Peminjaman::where('kode', $data->kode)->first()->kode}}</td>
             </tr>
             <tr>
                 <td>Nama</td>
@@ -53,21 +53,21 @@
             <tr>
                 <td>Tanggal Pinjam</td>
                 <td>:</td>
-                <td>{{ date('d-m-Y', strtotime(App\Peminjaman::where('kode', $data->kode)->first()->tgl_pinjam)) }}</td>
+                <td>{{ date('d-m-Y', strtotime(\App\Peminjaman::where('kode', $data->kode)->first()->tgl_pinjam)) }}</td>
             </tr>
             <tr>
                 <td>Tanggal Kembali</td>
                 <td>:</td>
-                <td>{{ date('d-m-Y', strtotime(App\Peminjaman::where('kode', $data->kode)->first()->tgl_kembali)) }}</td>
+                <td>{{ date('d-m-Y', strtotime(\App\Peminjaman::where('kode', $data->kode)->first()->tgl_kembali)) }}</td>
             </tr>
             <tr>
                 <td valign="top">Pinjaman</td>
                 <td valign="top">:</td>
-                {{! $barang = App\Peminjaman::all()->where('kode', $data->kode) }}
+                {{! $barang = \App\Peminjaman::all()->where('kode', $data->kode) }}
                 <td>
                     <div style="border:1px solid black;width:200%">
                         @foreach($barang as $b)
-                        <p style="margin:10px">{{ App\Barang::find($b->barang_id)->name }} sebanyak {{ $b->jumlah }} Buah</p>
+                        <p style="margin:10px">{{ \App\Barang::find($b->barang_id)->name }} sebanyak {{ $b->jumlah }} Buah</p>
                         @endforeach
                     </div>
                 </td>
