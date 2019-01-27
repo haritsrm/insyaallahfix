@@ -43,7 +43,7 @@
 							</div>
 							@else
 							@foreach(\App\Acc::where('activate', 0)->get() as $k)
-                                @if(\App\Peminjaman::where('kode',$k->kode)->where('user_id', Auth::user()->id)->get())
+                                @if(\App\Peminjaman::where('kode',$k->kode)->where('user_id', Auth::user()->id)->get() !== null)
 									{{! $od = \App\Peminjaman::where('kode',$k->kode)->where('user_id', Auth::user()->id)->get() }}
 								<table class="table">
                                     <h4 style="margin-left:20px">Kode peminjaman : {{ $k->kode }}</h4>
