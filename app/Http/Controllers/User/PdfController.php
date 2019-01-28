@@ -18,6 +18,9 @@ class PdfController extends BaseController
      */
     public function print($id)
     {
+        ini_set('max_execution_time', 300);
+        ini_set("memory_limit","512M");
+        
         $data = Acc::find($id);
         $pdf = PDF::loadView('pdf.peminjaman', compact('data', 'id'));
         $pdf->setPaper('A4', 'potrait');
