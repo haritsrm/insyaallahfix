@@ -16,10 +16,11 @@ class PdfController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function print(Request $req, $id)
+    public function print($id)
     {
         $data = Acc::find($id);
-        $pdf = PDF::loadView('pdf.peminjaman', compact('data', 'id'))->setPaper('A4', 'potrait');
+        $pdf = PDF::loadView('pdf.peminjaman', compact('data', 'id'));
+        $pdf->setPaper('A4', 'potrait');
         return $pdf->download('Bukti Peminjaman '.Auth::user()->name.'.pdf');
     }
 }
