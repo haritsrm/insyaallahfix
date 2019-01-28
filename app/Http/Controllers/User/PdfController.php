@@ -4,7 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller as BaseController;
 use Illuminate\Http\Request;
-use \PDF;
+use PDF;
 use App\Acc;
 use Session;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +19,7 @@ class PdfController extends BaseController
     public function print(Request $req, $id)
     {
         $data = Acc::find($id);
-        $pdf = \PDF::loadView('pdf.peminjaman', compact('data', 'id'))->setPaper('A4', 'potrait');
+        $pdf = PDF::loadView('pdf.peminjaman', compact('data', 'id'))->setPaper('A4', 'potrait');
         return $pdf->download('Bukti Peminjaman '.Auth::user()->name.'.pdf');
     }
 }
